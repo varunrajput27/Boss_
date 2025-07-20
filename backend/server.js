@@ -4,64 +4,47 @@ import dotenv from "dotenv";
 import db from "./config/db.js";
 import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
-import orderRoutes from './routes/orderRoute.js';
-
-//
-import path from 'path';
-import { fileURLToPath } from 'url';
-//
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import orderRoutes from "./routes/orderRoute.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 const app = express();
-app.use(cors());  // 
 
-const cors = require("cors");
+// 🟡 Resolve __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// ✅ Allowed origins
 const allowedOrigins = [
-  'http://localhost:5173',
- 'https://bossexpertfrontend.vercel.app'
+  "http://localhost:5173",
+  "https://bossexpertfrontend.vercel.app"
 ];
 
+// ✅ CORS middleware (add only ONCE, at top)
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true,
 }));
 
-app.use('/api', orderRoutes);
-
-
-
-const port = process.env.PORT || 3000;
-
+// ✅ Body parsers
 app.use(express.json());
-app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 
-// Route setup
+// ✅ Static folder for uploads
+app.use('/uploads', express.static('uploads'));
+
+// ✅ Routes
 app.use("/api/user", userRouter);
 app.use("/api/order", orderRoutes);
 app.use("/api/product", productRouter);
-app.use('/api', orderRoutes);
 
-
-app.listen(port, () => console.log(`Server running on port: ${port}`));
-
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static('uploads'));  // for serving images
-app.use("/api/product", productRouter);
-
-app.use("/api/product/add", productRouter);
-///
-
-
-app.use('/uploads', express.static('uploads'));
+// ✅ Start server
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`🚀 Server running on port: ${port}`));
