@@ -16,11 +16,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // ✅ Allowed origins
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://bossexpertfrontend.vercel.app"
+];
+
+// ✅ CORS middleware (add only ONCE, at top)
 app.use(cors({
-  origin: ["http://localhost:5173", "https://bossexpertfrontend.vercel.app"],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
 }));
-
 
 // ✅ Body parsers
 app.use(express.json());
