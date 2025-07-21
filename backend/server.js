@@ -6,7 +6,7 @@ import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
 import orderRoutes from "./routes/orderRoute.js";
 import path from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "url";-+
 
 dotenv.config();
 const app = express();
@@ -18,7 +18,9 @@ const __dirname = path.dirname(__filename);
 // ✅ Allowed origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://bossexpertfrontend.vercel.app"
+  "https://bossexpertfrontend.vercel.app",
+  "http://localhost:5175",
+  "https://bossexpertadmin.vercel.app"
 ];
 
 // ✅ CORS middleware (add only ONCE, at top)
