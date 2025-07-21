@@ -21,7 +21,7 @@ const Orders = () => {
 
   if (loading) {
     return (
-      <div className="p-6 text-center text-lg text-gray-700">Loading orders...</div>
+      <div className="p-6 text-center text-lg pt-16 text-gray-700">Loading orders...</div>
     );
   }
 
