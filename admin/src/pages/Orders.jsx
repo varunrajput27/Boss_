@@ -7,7 +7,7 @@ const Orders = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_LINK}/api/allorders`)
+      .get(`${import.meta.env.VITE_BACKEND_LINK}/api/order/allorders`)
       .then((res) => {
         if (res.data.success) setOrders(res.data.orders);
         else setOrders([]);
@@ -27,7 +27,7 @@ const Orders = () => {
 
   if (orders.length === 0) {
     return (
-      <div className="p-6 text-center text-lg text-gray-600">No orders found.</div>
+      <div className="p-6 text-center text-lg pt-16 text-gray-600">No orders found.</div>
     );
   }
 
