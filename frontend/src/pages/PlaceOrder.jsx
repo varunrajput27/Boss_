@@ -212,9 +212,15 @@ const PlaceOrder = () => {
               <p className='mx-4 text-sm font-medium text-gray-500'>CASH ON DELIVERY</p>
             </div>
           </div>
-          <div className='w-full mt-8 text-end'>
-            <button onClick={handlePlaceOrder} className='px-16 py-3 text-sm text-white bg-black active:bg-gray-800'>PLACE ORDER</button>
-          </div>
+          <div className='w-full mt-8 text-center px-4 sm:px-0 pb-10'>
+  <button
+    onClick={handlePlaceOrder}
+    className='w-full sm:w-auto px-8 py-3 text-sm font-semibold text-white bg-black rounded-lg hover:bg-gray-800 transition-all duration-200'
+  >
+    PLACE ORDER
+  </button>
+</div>
+
         </div>
       </div>
     </div>

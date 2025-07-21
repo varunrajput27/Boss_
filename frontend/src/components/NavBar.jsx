@@ -77,7 +77,7 @@ const NavBar = () => {
       {/* Promo Bar */}
       <div className="fixed top-0 left-0 w-full h-[40px] bg-[#2b2b2b] text-yellow-400 z-50 flex justify-between items-center px-4 text-[12px] font-medium">
         <p className="truncate">
-          Welcome to <span className="font-bold">Boss Expert</span> – Your Online Market!
+          Welcome to <span className="font-bold">Boss Expert</span> – Your Online Shop!
         </p>
         <p className="truncate cursor-pointer">
           <span className="font-bold">📞+91-558-669-447</span>
@@ -187,6 +187,7 @@ const NavBar = () => {
         </div>
       </div>
 
+
       {/* Mobile Sidebar */}
       <div className={`fixed top-0 right-0 bottom-0 bg-white bg-opacity-95 z-50 transition-all duration-300 ${visible ? 'w-full' : 'w-0 overflow-hidden'}`}>
         <div className="flex flex-col text-yellow-600 pt-16 px-6">
@@ -196,11 +197,25 @@ const NavBar = () => {
             </svg>
             <p>Back</p>
           </div>
-          {['HOME', 'COLLECTION', 'ABOUT', 'CONTACT'].map((item) => (
-            <NavLink key={item} to={`/${item === 'HOME' ? '' : item.toLowerCase()}`} onClick={() => setVisible(false)} className="py-3 border-b border-yellow-400 hover:text-yellow-900 font-medium">
-              {item}
-            </NavLink>
-          ))}
+ {['HOME', 'COLLECTION', 'ABOUT', 'CONTACT'].map((item) => (
+  <NavLink
+    key={item}
+    to={`/${item === 'HOME' ? '' : item.toLowerCase()}`}
+    onClick={() => setVisible(false)}
+    className={({ isActive }) =>
+      `block w-full py-3 px-4 border-b border-yellow-400 font-medium ${
+        isActive
+          ? 'bg-yellow-100 text-yellow-900' // 🔥 Active tab ka background yellow-ish
+          : 'bg-transparent text-yellow-600'
+      } hover:bg-yellow-200`
+    }
+  >
+    {item}
+  </NavLink>
+))}
+
+
+
         </div>
       </div>
 

@@ -104,9 +104,8 @@ const Collection = () => {
           </p>
 
           <div
-            className={`border border-yellow-500 bg-white pl-5 py-3 mt-6 ${
-              showFilter ? "" : "hidden"
-            } sm:block rounded-md shadow-sm`}
+            className={`border border-yellow-500 bg-white pl-5 py-3 mt-6 ${showFilter ? "" : "hidden"
+              } sm:block rounded-md shadow-sm`}
           >
             <p className="mb-3 text-sm font-semibold text-yellow-900">CATEGORIES</p>
             <div className="flex flex-col gap-2 text-sm font-light text-yellow-900">
@@ -129,9 +128,8 @@ const Collection = () => {
           </div>
 
           <div
-            className={`border border-yellow-500 bg-white pl-5 py-3 my-5 ${
-              showFilter ? "" : "hidden"
-            } sm:block rounded-md shadow-sm`}
+            className={`border border-yellow-500 bg-white pl-5 py-3 my-5 ${showFilter ? "" : "hidden"
+              } sm:block rounded-md shadow-sm`}
           >
             <p className="mb-3 text-sm font-semibold text-yellow-900">TYPES</p>
             <div className="flex flex-col gap-2 text-sm font-light text-yellow-900">
@@ -154,9 +152,8 @@ const Collection = () => {
           </div>
 
           <button
-            className={`px-4 py-2 mt-1 text-white bg-yellow-500 rounded hover:bg-yellow-900 transition-colors ${
-              showFilter ? "block" : "hidden"
-            } sm:block w-full`}
+            className={`px-4 py-2 mt-1 text-white bg-yellow-500 rounded hover:bg-yellow-900 transition-colors ${showFilter ? "block" : "hidden"
+              } sm:block w-full`}
             onClick={clearFilters}
           >
             Clear Filters
@@ -165,17 +162,19 @@ const Collection = () => {
 
         {/* Products Section */}
         <div className="flex-1 text-black">
-          <div className="flex justify-between items-center mb-6 text-2xl font-semibold">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6 text-2xl font-semibold">
             <Title text1={"ALL"} text2={"COLLECTIONS"} />
-            <select
-              onChange={(e) => setSortType(e.target.value)}
-              className="px-3 py-2 text-base border border-yellow-500 rounded text-yellow-900"
-              defaultValue="relevant"
-            >
-              <option value="relevant">Sort by: Relevant</option>
-              <option value="low-high">Sort by: Low to High</option>
-              <option value="high-low">Sort by: High to Low</option>
-            </select>
+            <div className="w-full sm:w-auto">
+              <select
+                onChange={(e) => setSortType(e.target.value)}
+                className="w-full sm:w-auto px-3 py-2 text-base border border-yellow-500 rounded text-yellow-900"
+                defaultValue="relevant"
+              >
+                <option value="relevant">Sort by: Relevant</option>
+                <option value="low-high">Sort by: Low to High</option>
+                <option value="high-low">Sort by: High to Low</option>
+              </select>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 gap-y-8">

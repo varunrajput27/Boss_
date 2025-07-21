@@ -44,6 +44,18 @@ router.get('/myorders', authMiddleware, async (req, res) => {
   }
 });
 
+// delete order by admin
+
+router.delete("/:orderId", async (req, res) => {
+  try {
+    await Order.findByIdAndDelete(req.params.orderId);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to delete order" });
+  }
+});
+
+
 
 
 export default router;

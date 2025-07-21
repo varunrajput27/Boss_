@@ -5,7 +5,12 @@ import { assets } from '../assets/assets';
 import CartTotal from '../components/CartTotal';
 import { useNavigate } from 'react-router-dom';
 
+
 const Cart = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { products, currency, cartItems, updateQuantity, user } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
   const navigate = useNavigate();
@@ -39,6 +44,8 @@ const handleCheckout = () => {
     navigate('/place-order');
   }
 };
+
+
 
 
   return (

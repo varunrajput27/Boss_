@@ -19,7 +19,7 @@ const __dirname = path.dirname(__filename);
 const allowedOrigins = [
   "http://localhost:5173",
   "https://bossexpertfrontend.vercel.app",
-  "http://localhost:5175",
+  "http://localhost:5174",
   "https://bossexpertadmin.vercel.app"
 ];
 
